@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {CurrentUserContext} from "../../helpers/AppProviders";
-import {requestUserInfo} from "../../helpers/api";
+import {getCurrentUser, signIn} from "../../helpers/api";
 
 function Copyright(props) {
     return (
@@ -38,11 +38,12 @@ export default function SignIn() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await requestUserInfo({email, password})
+        const response = await signIn({email, password})
 
-        if (response.email) {
+        if (response.accessToken) {
+            const user = await getCurrentUser(response.accessToken);
             setCurrentUser({
-                name: response.first_name + ' ' + response.last_name
+                name: user.first_name + ' ' + user.last_name
             });
         } else {
             setError(response.message);
