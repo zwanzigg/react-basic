@@ -7,15 +7,16 @@ import {Header} from "../components/Header";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import Box from "@mui/material/Box";
+import {LinearLoader} from "../components/LinearLoader";
 
-export function AppRouter() {
+export const AppRouter = () => {
     const {currentUser, accessToken} = useContext(CurrentUserContext);
 
     return (
         <Box sx={{backgroundColor: 'secondary.main', width: '100%', height: '100%'}}>
             <BrowserRouter>
                 <Header/>
-                {(!currentUser && accessToken) ? <h1>Loading</h1> :
+                {(!currentUser && accessToken) ? <LinearLoader/> :
                     (<Routes>
                         {currentUser !== null ?
                             <>

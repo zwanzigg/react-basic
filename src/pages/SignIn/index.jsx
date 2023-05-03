@@ -14,20 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {CurrentUserContext} from "../../helpers/AppProviders";
 import {signIn} from "../../helpers/api";
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="/#">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
+import {Copyright} from "../../components/Copyright";
 
 export default function SignIn() {
     const {setAccessTokenToLocalStorage} = useContext(CurrentUserContext);

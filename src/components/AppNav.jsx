@@ -15,7 +15,7 @@ import {CurrentUserContext} from "../helpers/AppProviders";
 import {SwitchTheme} from "./SwitchTheme";
 import {AppSettings} from "./AppSettings";
 
-export function AppNav({pages, settings}) {
+export const AppNav = ({pages, settings}) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const {currentUser} = useContext(CurrentUserContext);
 
@@ -35,8 +35,7 @@ export function AppNav({pages, settings}) {
         navigate(route);
     };
 
-    return (
-        <AppBar position="static">
+    return (<AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
@@ -73,13 +72,11 @@ export function AppNav({pages, settings}) {
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
+                                vertical: 'bottom', horizontal: 'left',
                             }}
                             keepMounted
                             transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
+                                vertical: 'top', horizontal: 'left',
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
@@ -90,8 +87,7 @@ export function AppNav({pages, settings}) {
                             {pages.map(({title, route}, i) => (
                                 <MenuItem key={i} onClick={() => handleClickNavMenu(route)}>
                                     <Typography textAlign="center">{title}</Typography>
-                                </MenuItem>
-                            ))}
+                                </MenuItem>))}
                         </Menu>
                     </Box>
                     <AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
@@ -113,23 +109,18 @@ export function AppNav({pages, settings}) {
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                        {pages.map(({title, route}, i) => (
-                            <Button
+                        {pages.map(({title, route}, i) => (<Button
                                 key={i}
                                 onClick={() => handleClickNavMenu(route)}
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
                                 {title}
-                            </Button>
-                        ))}
+                            </Button>))}
                     </Box>
                     <SwitchTheme/>
-                    {currentUser &&
-                        <AppSettings settings={settings} handleClickNavMenu={handleClickNavMenu}/>
-                    }
+                    {currentUser && <AppSettings settings={settings} handleClickNavMenu={handleClickNavMenu}/>}
                 </Toolbar>
             </Container>
-        </AppBar>
-    );
+        </AppBar>);
 }
 

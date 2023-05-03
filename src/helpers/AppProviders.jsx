@@ -4,7 +4,7 @@ import {getCurrentUser} from "./api";
 export const CurrentThemeContext = createContext(null);
 export const CurrentUserContext = createContext(null);
 
-export function AppProviders({children, theme, setTheme}) {
+export const AppProviders = ({children, theme, setTheme}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [accessToken, setAccessToken] = React.useState(localStorage.getItem("accessToken"));
 

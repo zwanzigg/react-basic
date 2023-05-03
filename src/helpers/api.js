@@ -1,6 +1,6 @@
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000/api';
 
-export function signIn(loginInfo) {
+export const signIn = (loginInfo) => {
     return fetch(`${API_URL}/users/sign-in`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -10,7 +10,7 @@ export function signIn(loginInfo) {
     .then((response) => response.json());
 }
 
-export function getCurrentUser(accessToken) {
+export const getCurrentUser = (accessToken) => {
     return fetch(`${API_URL}/users/me`, {
         method: 'GET',
         headers: {
