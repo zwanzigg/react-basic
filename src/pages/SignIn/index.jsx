@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {CurrentUserContext} from "../../helpers/AppProviders";
-import {getCurrentUser, signIn} from "../../helpers/api";
+import {signIn} from "../../helpers/api";
 
 function Copyright(props) {
     return (
@@ -30,7 +30,7 @@ function Copyright(props) {
 
 
 export default function SignIn() {
-    const {setCurrentUser} = useContext(CurrentUserContext);
+    const {setAccessTokenToLocalStorage} = useContext(CurrentUserContext);
     const [email, setEmail] = useState('test+1@gmail.com');
     const [password, setPassword] = useState('1234');
     const [error, setError] = useState('');
@@ -41,10 +41,7 @@ export default function SignIn() {
         const response = await signIn({email, password})
 
         if (response.accessToken) {
-            const user = await getCurrentUser(response.accessToken);
-            setCurrentUser({
-                name: user.first_name + ' ' + user.last_name
-            });
+            setAccessTokenToLocalStorage(response.accessToken);
         } else {
             setError(response.message);
         }
