@@ -1,6 +1,8 @@
-import {useContext,} from "react";
+import React, {useContext,} from "react";
 import {CurrentUserContext} from "../helpers/AppProviders";
 import {AppNav} from "./AppNav";
+import Container from "@mui/material/Container";
+import AppBar from "@mui/material/AppBar";
 
 export const Header = () => {
     const {currentUser} = useContext(CurrentUserContext);
@@ -22,8 +24,10 @@ export const Header = () => {
     }];
 
     return (
-        <>
-            <AppNav pages={currentUser === null ? pages : protectedPages} settings={settings}/>
-        </>
+        <AppBar position="static">
+            <Container maxWidth="xl">
+                <AppNav pages={currentUser === null ? pages : protectedPages} settings={settings}/>
+            </Container>
+        </AppBar>
     )
 }

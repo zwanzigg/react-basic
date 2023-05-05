@@ -15,6 +15,7 @@ import Container from '@mui/material/Container';
 import {CurrentUserContext} from "../../helpers/AppProviders";
 import {signIn} from "../../helpers/api";
 import {Copyright} from "../../components/Copyright";
+import {Link as RouterLink} from "react-router-dom";
 
 export default function SignIn() {
     const {setAccessTokenToLocalStorage} = useContext(CurrentUserContext);
@@ -26,11 +27,10 @@ export default function SignIn() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const response = await signIn({email, password})
-
-        if (response.accessToken) {
-            setAccessTokenToLocalStorage(response.accessToken);
+        if (response.error) {
+            setError(response.error?.message);
         } else {
-            setError(response.message);
+            setAccessTokenToLocalStorage(response.accessToken);
         }
 
     };
@@ -106,8 +106,8 @@ export default function SignIn() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/sign-up" variant="body2">
-                                    {"Sign Up"}
+                                <Link component={RouterLink} to="/sign-up" variant="body2">
+                                    Sign up
                                 </Link>
                             </Grid>
                         </Grid>
