@@ -39,10 +39,8 @@ export default function SignUp() {
 
 
     const onSubmit = async (data) => {
-        const response = await signUp(data)
-        if (response.error) {
-            setError(response.error?.message);
-        } else {
+        const response = await signUp(data);
+        if (!response.error) {
             setAccessTokenToLocalStorage(response.accessToken);
         }
     }

@@ -9,8 +9,13 @@ export const AppProviders = ({children, theme, setTheme}) => {
     const [accessToken, setAccessToken] = React.useState(localStorage.getItem("accessToken"));
 
     const getUserInfo = useCallback(async () => {
-        const response = accessToken ? await getCurrentUser(accessToken): null;
-        setCurrentUser(response);
+        const response = accessToken ? await getCurrentUser(accessToken) : null;
+        const user = (!response || response.error) ? null : response;
+        if (!user && accessToken) {
+            setAccessTokenToLocalStorage('');
+        }
+            setCurrentUser(user);
+
     }, [accessToken]);
 
     const setAccessTokenToLocalStorage = (accessToken) => {
