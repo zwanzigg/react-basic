@@ -10,18 +10,18 @@ import Typography from "@mui/material/Typography";
 
 export const AppSettings = ({settings, handleClickNavMenu}) => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const {setAccessTokenToLocalStorage} = useContext(CurrentUserContext);
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
 
     const handleLogout = () => {
-        setCurrentUser(null);
+        setAccessTokenToLocalStorage('');
     }
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-    const {setCurrentUser} = useContext(CurrentUserContext);
 
     return (
         <Box sx={{flexGrow: 0}}>
