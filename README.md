@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# React App with JWT Authorization and Authentication
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application created using the `create-react-app` npm package. 
+Its goal is to implement a basic authorization and authentication strategy using JSON Web Tokens (JWT).
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+Before starting the app, you need to set up the environment variables by following these steps:
 
-### `npm start`
+1. Locate the `sample.env` file in the project directory.
+2. Create a new file named `.env` in the same directory.
+3. Copy the contents of `sample.env` into `.env`.
+4. Fill in the necessary environment variables inside the `.env` file. These variables might include secret keys, API endpoints, or other configuration details required for JWT authentication.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To install the dependencies and run the React app, please follow these steps:
 
-### `npm test`
+1. Ensure that you have Node.js installed on your machine.
+2. Open a terminal and navigate to the project directory.
+3. Run the following command to install the dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```shell
+   npm install
+   ```
 
-### `npm run build`
+4. After the installation is complete, start the React development server with the following command:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```shell
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. The app should now be running in your browser at `http://localhost:3000`. Any changes you make to the source code will automatically trigger a refresh in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Implemented Features
 
-### `npm run eject`
+This React app already provides a basic structure and components to implement authorization and authentication using JWT. The following steps are already implemented and ready to use:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Set up linting and formatting using ESLint and Prettier.
+2. Set up React Router.
+3. Registration form: Allows users to sign up and create an account.
+4. Login form: Authenticates users and generates a JWT upon successful login.
+5. The generated JWT is stored in local storage.
+6. Protected routes: Includes an example protected route (/Home, /Profile) that requires a valid JWT for access.
+7. Logout mechanism: Allows users to log out and clears the stored JWT.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features to implement:
+1. Secure token storage.
+2. Refresh token.
+3. Password reset.
+4. Email verification.
+5. Throttle login attempts.
+6. Add tests.
+7. Add Dockerfile.
+8. Add CI/CD pipeline.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Libraries used:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. React
+2. Material UI
+3. React-hook-form
