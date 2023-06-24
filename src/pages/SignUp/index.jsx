@@ -23,19 +23,10 @@ export default function SignUp() {
     const [error, setError] = useState('');
 
     const {
-        register,
-        handleSubmit,
-        formState:
-            {errors, isValid, isDirty, touchedFields}
+        register, handleSubmit, formState: {errors, isValid, isDirty, touchedFields}
     } = useForm({
-            mode: "onTouched",
-        defaultValues: {
-            firstName: 'Anna',
-            lastName: 'Bolein',
-            email: 'anna@gmail.com',
-        }
-        },
-    );
+        mode: "onTouched",
+    },);
 
 
     const onSubmit = async (data) => {
@@ -44,21 +35,17 @@ export default function SignUp() {
             setAccessTokenToLocalStorage(response.accessToken);
         }
     }
-    return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline/>
-            <Box
-                sx={{
-                    marginTop: 8,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
-                <Avatar sx={{m: 1, bgcolor: 'primary.main'}}>
-                    <LockOutlinedIcon/>
-                </Avatar>
-                <Typography component="h1" variant="h5">
+    return (<Container component="main" maxWidth="xs">
+        <CssBaseline/>
+        <Box
+            sx={{
+                marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center',
+            }}
+        >
+            <Avatar sx={{m: 1, bgcolor: 'primary.main'}}>
+                <LockOutlinedIcon/>
+            </Avatar>
+            <Typography component="h1" variant="h5">
                     Sign up
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{mt: 3}}>
@@ -159,8 +146,7 @@ export default function SignUp() {
                         </Grid>
                     </Grid>
                 </Box>
-            </Box>
-            <Copyright sx={{mt: 5}}/>
-        </Container>
-    );
+        </Box>
+        <Copyright sx={{mt: 5}}/>
+    </Container>);
 }
