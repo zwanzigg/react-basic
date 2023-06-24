@@ -1,7 +1,15 @@
 # React App with JWT Authorization and Authentication
 
-This project is a React application created using the `create-react-app` npm package. 
+This project is a React application created using the `create-react-app` npm package.
 Its goal is to implement a basic authorization and authentication strategy using JSON Web Tokens (JWT).
+
+## Demo
+
+In this repo only front-end is implemented.
+
+[Backend Repository](https://github.com/zwanzigg/express-basic)
+
+![App Demo](public/assets/example.gif)
 
 ## Setup
 
@@ -10,7 +18,8 @@ Before starting the app, you need to set up the environment variables by followi
 1. Locate the `sample.env` file in the project directory.
 2. Create a new file named `.env` in the same directory.
 3. Copy the contents of `sample.env` into `.env`.
-4. Fill in the necessary environment variables inside the `.env` file. These variables might include secret keys, API endpoints, or other configuration details required for JWT authentication.
+4. Fill in the necessary environment variables inside the `.env` file. These variables might include secret keys, API
+   endpoints, or other configuration details required for JWT authentication.
 
 ## Installation
 
@@ -38,11 +47,13 @@ This React app already provides a basic structure and components to implement au
 
 1. Set up linting and formatting using ESLint and Prettier.
 2. Set up React Router.
-3. Registration form: Allows users to sign up and create an account.
+3. Registration form with fields validation: Allows users to sign up and create an account.
 4. Login form: Authenticates users and generates a JWT upon successful login.
 5. The generated JWT is stored in local storage.
 6. Protected routes: Includes an example protected route (/Home, /Profile) that requires a valid JWT for access.
 7. Logout mechanism: Allows users to log out and clears the stored JWT.
+8. Theme switcher: Allows users to switch between light and dark themes.
+9. Toast notifications: Displays success and error messages to the user.
 
 ## Features to implement:
 1. Secure token storage.
@@ -58,4 +69,4 @@ This React app already provides a basic structure and components to implement au
 
 1. React
 2. Material UI
-3. React-hook-form
+3. react-hook-form
